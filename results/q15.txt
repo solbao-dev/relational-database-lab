@@ -1,0 +1,11 @@
+Q15: ★ 평가 핵심 Q15 인덱스: 회원별 대여 검색과 조인에 사용하는 member_id를 대상으로 한다. 쓰기 비용·공간이 추가되며 속도 향상을 단정하지 않는다.
+SQL:
+CREATE INDEX idx_rental_member_id ON rental(member_id);
+실행 완료 (조회 결과 없음)
+name | sql
+idx_rental_member_id | CREATE INDEX idx_rental_member_id ON rental(member_id)
+(1 rows)
+SQLite 전용 실행 계획 (속도 측정 아님)
+id | parent | notused | detail
+3 | 0 | 61 | SEARCH rental USING INDEX idx_rental_member_id (member_id=?)
+(1 rows)

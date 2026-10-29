@@ -1,0 +1,7 @@
+Q12: ★ 평가 핵심 Q12 서브쿼리: 대여 이력이 전혀 없는 회원을 찾는다. SELECT 1은 존재 확인용이다.
+SQL:
+SELECT m.id, m.name FROM member AS m WHERE NOT EXISTS (SELECT 1 FROM rental AS r WHERE r.member_id = m.id) ORDER BY m.id;
+id | name
+9 | 회원09
+10 | 회원10
+(2 rows)

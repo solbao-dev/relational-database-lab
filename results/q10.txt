@@ -1,0 +1,15 @@
+Q10: 집계: 회원별 연체료 합계. COALESCE는 대여가 없어 합계가 NULL인 경우 0으로 표시한다.
+SQL:
+SELECT m.id, m.name, COALESCE(SUM(r.late_fee), 0) AS total_fee FROM member AS m LEFT JOIN rental AS r ON m.id = r.member_id GROUP BY m.id, m.name ORDER BY m.id;
+id | name | total_fee
+1 | 회원01 | 500
+2 | 회원02 | 1500
+3 | 회원03 | 1000
+4 | 회원04 | 500
+5 | 회원05 | 1500
+6 | 회원06 | 1000
+7 | 회원07 | 500
+8 | 회원08 | 1500
+9 | 회원09 | 0
+10 | 회원10 | 0
+(10 rows)

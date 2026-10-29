@@ -1,0 +1,15 @@
+Q01: 기본 조회: 회원 전체를 식별자 순서로 확인한다.
+SQL:
+SELECT id, name, email FROM member ORDER BY id;
+id | name | email
+1 | 회원01 | member01@example.test
+2 | 회원02 | member02@example.test
+3 | 회원03 | member03@example.test
+4 | 회원04 | member04@example.test
+5 | 회원05 | member05@example.test
+6 | 회원06 | member06@example.test
+7 | 회원07 | member07@example.test
+8 | 회원08 | member08@example.test
+9 | 회원09 | member09@example.test
+10 | 회원10 | member10@example.test
+(10 rows)

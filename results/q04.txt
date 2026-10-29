@@ -1,0 +1,10 @@
+Q04: 기본 조회: 최근 대여 5건만 조회한다. LIMIT는 선택한 SQLite에서 지원하는 문법이다.
+SQL:
+SELECT id, borrowed_at FROM rental ORDER BY borrowed_at DESC, id DESC LIMIT 5;
+id | borrowed_at
+116 | 2026-10-16
+115 | 2026-10-15
+114 | 2026-10-14
+113 | 2026-10-13
+112 | 2026-10-12
+(5 rows)

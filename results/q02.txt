@@ -1,0 +1,7 @@
+Q02: 기본 조회: 1번 분류의 책을 검색한다.
+SQL:
+SELECT id, title FROM book WHERE category_id = 1 ORDER BY id;
+id | title
+1 | 학습 도서 01
+11 | 학습 도서 11
+(2 rows)

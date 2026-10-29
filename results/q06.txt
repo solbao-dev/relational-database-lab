@@ -1,0 +1,17 @@
+Q06: INNER JOIN: 책의 분류명을 연결한다.
+SQL:
+SELECT b.id, b.title, c.name AS category_name FROM book AS b INNER JOIN category AS c ON b.category_id = c.id ORDER BY b.id;
+id | title | category_name
+1 | 학습 도서 01 | 분류01
+2 | 학습 도서 02 | 분류02
+3 | 학습 도서 03 | 분류03
+4 | 학습 도서 04 | 분류04
+5 | 학습 도서 05 | 분류05
+6 | 학습 도서 06 | 분류06
+7 | 학습 도서 07 | 분류07
+8 | 학습 도서 08 | 분류08
+9 | 학습 도서 09 | 분류09
+10 | 학습 도서 10 | 분류10
+11 | 학습 도서 11 | 분류01
+12 | 학습 도서 12 | 분류02
+(12 rows)

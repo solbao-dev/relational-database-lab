@@ -1,0 +1,49 @@
+-- 보너스 1: 미대여 회원 찾기를 LEFT JOIN과 서브쿼리로 비교한다.
+SELECT m.id FROM member m LEFT JOIN rental r ON m.id = r.member_id WHERE r.id IS NULL ORDER BY m.id;
+id
+9
+10
+(2 rows)
+
+
+SELECT m.id FROM member m WHERE NOT EXISTS (SELECT 1 FROM rental r WHERE r.member_id = m.id) ORDER BY m.id;
+id
+9
+10
+(2 rows)
+
+
+-- 보너스 3: 월별 대여 건수 / 도서별 인기 순위 / 회원별 연체료 합계.
+-- substr은 SQLite에서 사용하는 문자열 함수다. 고정 형식 날짜의 연월을 추출한다.
+SELECT substr(borrowed_at, 1, 7) AS month, COUNT(*) AS rentals FROM rental GROUP BY substr(borrowed_at, 1, 7);
+month | rentals
+2026-10 | 15
+(1 rows)
+
+
+SELECT b.id, b.title, COUNT(r.id) AS rentals FROM book b LEFT JOIN rental r ON r.book_id = b.id GROUP BY b.id, b.title ORDER BY rentals DESC, b.id LIMIT 10;
+id | title | rentals
+1 | 학습 도서 01 | 2
+2 | 학습 도서 02 | 2
+3 | 학습 도서 03 | 2
+4 | 학습 도서 04 | 1
+5 | 학습 도서 05 | 1
+6 | 학습 도서 06 | 1
+7 | 학습 도서 07 | 1
+8 | 학습 도서 08 | 1
+9 | 학습 도서 09 | 1
+10 | 학습 도서 10 | 1
+(10 rows)
+
+
+SELECT member_id, SUM(late_fee) AS total_fee FROM rental GROUP BY member_id ORDER BY total_fee DESC, member_id;
+member_id | total_fee
+2 | 1500
+5 | 1500
+3 | 1000
+6 | 1000
+8 | 1000
+1 | 500
+4 | 500
+7 | 500
+(8 rows)

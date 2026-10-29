@@ -1,0 +1,21 @@
+Q05: INNER JOIN: 회원번호가 일치하는 대여와 회원 이름을 연결한다.
+SQL:
+SELECT m.name, r.id AS rental_id FROM member AS m INNER JOIN rental AS r ON m.id = r.member_id ORDER BY r.id;
+name | rental_id
+회원01 | 101
+회원02 | 102
+회원03 | 103
+회원04 | 104
+회원05 | 105
+회원06 | 106
+회원07 | 107
+회원08 | 108
+회원01 | 109
+회원02 | 110
+회원03 | 111
+회원04 | 112
+회원05 | 113
+회원06 | 114
+회원07 | 115
+회원08 | 116
+(16 rows)

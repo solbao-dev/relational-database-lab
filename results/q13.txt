@@ -1,0 +1,12 @@
+Q13: ★ 평가 핵심 Q13 수정: 103번 대여를 반납 처리한다. WHERE로 대상 하나를 지정한다.
+SQL:
+UPDATE rental SET returned_at = '2026-10-10' WHERE id = 103;
+변경 전
+id | member_id | book_id | borrowed_at | returned_at | late_fee
+103 | 3 | 3 | 2026-10-03 | NULL | 0
+(1 rows)
+실행 완료 (조회 결과 없음)
+변경 후
+id | member_id | book_id | borrowed_at | returned_at | late_fee
+103 | 3 | 3 | 2026-10-03 | 2026-10-10 | 0
+(1 rows)

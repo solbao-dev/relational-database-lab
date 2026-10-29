@@ -1,0 +1,15 @@
+Q09: ★ 평가 핵심 Q09 집계: 회원별 대여 건수. COUNT(r.id)는 NULL을 제외해 미대여 회원을 0으로 센다.
+SQL:
+SELECT m.id, m.name, COUNT(r.id) AS rental_count FROM member AS m LEFT JOIN rental AS r ON m.id = r.member_id GROUP BY m.id, m.name ORDER BY rental_count DESC, m.id;
+id | name | rental_count
+1 | 회원01 | 2
+2 | 회원02 | 2
+3 | 회원03 | 2
+4 | 회원04 | 2
+5 | 회원05 | 2
+6 | 회원06 | 2
+7 | 회원07 | 2
+8 | 회원08 | 2
+9 | 회원09 | 0
+10 | 회원10 | 0
+(10 rows)

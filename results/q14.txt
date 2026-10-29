@@ -1,0 +1,11 @@
+Q14: ★ 평가 핵심 Q14 삭제: 지정한 가상 대여 기록만 삭제한다. 표 자체는 유지된다.
+SQL:
+DELETE FROM rental WHERE id = 116;
+변경 전
+id | member_id | book_id | borrowed_at | returned_at | late_fee
+116 | 8 | 4 | 2026-10-16 | 2026-10-19 | 500
+(1 rows)
+실행 완료 (조회 결과 없음)
+변경 후
+id | member_id | book_id | borrowed_at | returned_at | late_fee
+(0 rows)

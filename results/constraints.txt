@@ -1,0 +1,34 @@
+없는 회원 FK
+SQL: INSERT INTO rental VALUES (999,999,1,'2026-10-01',NULL,0)
+예상된 거절: FOREIGN KEY constraint failed
+
+없는 책 FK
+SQL: INSERT INTO rental VALUES (999,1,999,'2026-10-01',NULL,0)
+예상된 거절: FOREIGN KEY constraint failed
+
+없는 분류 FK
+SQL: INSERT INTO book VALUES (999,'검사',999)
+예상된 거절: FOREIGN KEY constraint failed
+
+NOT NULL
+SQL: INSERT INTO member VALUES (999,NULL,'new@example.test','2026-10-01')
+예상된 거절: NOT NULL constraint failed: member.name
+
+UNIQUE
+SQL: INSERT INTO member VALUES (999,'검사','member01@example.test','2026-10-01')
+예상된 거절: UNIQUE constraint failed: member.email
+
+PK 중복
+SQL: INSERT INTO member VALUES (1,'검사','new@example.test','2026-10-01')
+예상된 거절: UNIQUE constraint failed: member.id
+
+음수 연체료
+SQL: INSERT INTO rental VALUES (999,1,1,'2026-10-01',NULL,-1)
+예상된 거절: CHECK constraint failed: late_fee >= 0
+
+반납일 역전
+SQL: INSERT INTO rental VALUES (999,1,1,'2026-10-02','2026-10-01',0)
+예상된 거절: CHECK constraint failed: returned_at IS NULL OR returned_at >= borrowed_at
+
+수정 방법: 존재하는 부모 번호를 사용하거나 부모를 먼저 입력한다.
+실패 입력은 저장되지 않았다.

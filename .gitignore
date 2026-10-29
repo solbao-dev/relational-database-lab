@@ -1,0 +1,22 @@
+# 검증 도구가 생성하는 실행 로그
+/results/verification.txt
+/results/cli-verification.txt
+/results/cli-session.txt
+
+# SQLite 데이터베이스와 임시 파일
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+
+# Python 캐시와 가상 환경
+__pycache__/
+*.py[cod]
+.venv/
+
+# 환경 변수와 운영체제 파일
+.env
+.env.*
+.DS_Store
