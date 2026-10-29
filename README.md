@@ -26,7 +26,7 @@ Python 내장 SQLite와 터미널의 SQLite CLI는 별도 실행 경로이므로
 | 필수 | 테이블 4개와 PK·FK·제약조건 | [schema.sql](schema.sql) |
 | 필수 | 각 테이블에 10행 이상의 가상 데이터 입력 | [seed.sql](seed.sql) |
 | 필수 | 기본 조회·조인·집계·서브쿼리·수정·삭제·인덱스 SQL 15개 | [queries.sql](queries.sql) |
-| 필수 | 쿼리별 실행 SQL과 결과 텍스트 | [results/](results/) |
+| 필수 | 쿼리별 실행 SQL·결과 텍스트·스크린샷 | [results/](results/), [실행 캡처 15개](results/screenshots/README.md) |
 | 보너스 | LEFT JOIN과 NOT EXISTS로 같은 문제 해결 | [bonus.sql](bonus.sql) |
 | 보너스 | 제약조건 위반 입력과 거절 원인 기록 | [constraints.txt](results/constraints.txt) |
 | 보너스 | 월별 대여 수·도서 인기 순위·회원별 연체료 집계 | [bonus.sql](bonus.sql), [결과](results/bonus.txt) |
@@ -49,7 +49,8 @@ relational-database-lab/
 │   ├── q01.txt … q15.txt    # 쿼리별 실행 결과
 │   ├── constraints.txt     # 제약조건 위반 실험
 │   ├── bonus.txt           # 보너스 실행 결과
-│   └── validation.md       # 검증 결과 요약
+│   ├── validation.md       # 검증 결과 요약
+│   └── screenshots/        # Q01~Q15 실제 실행 화면과 캡처 안내
 └── tools/
     ├── verify.py           # Python 내장 SQLite 검증
     └── verify_cli.py       # SQLite CLI 검증
@@ -154,21 +155,29 @@ python3 tools/verify_cli.py
 
 | 번호 | 기능 | 확인 내용 | 결과 |
 | --- | --- | --- | --- |
-| Q01 | 기본 조회 | 회원 전체 조회 | [결과](results/q01.txt) |
-| Q02 | WHERE | 1번 분류의 책 검색 | [결과](results/q02.txt) |
-| Q03 | ORDER BY | 최근 가입한 회원부터 정렬 | [결과](results/q03.txt) |
-| Q04 | LIMIT | 최근 대여 5건 조회 | [결과](results/q04.txt) |
-| Q05 | INNER JOIN | 대여 기록에 회원 이름 연결 | [결과](results/q05.txt) |
-| Q06 | INNER JOIN | 책에 분류명 연결 | [결과](results/q06.txt) |
-| Q07 | LEFT JOIN | 대여하지 않은 회원도 포함 | [결과](results/q07.txt) |
-| Q08 | 다중 JOIN | 회원·대여·책 연결 | [결과](results/q08.txt) |
-| Q09 | COUNT·GROUP BY | 회원별 대여 건수 | [결과](results/q09.txt) |
-| Q10 | SUM·GROUP BY | 회원별 연체료 합계 | [결과](results/q10.txt) |
-| Q11 | AVG·GROUP BY | 반납 완료 기록의 회원별 평균 대여일수 | [결과](results/q11.txt) |
-| Q12 | 서브쿼리 | 대여 이력이 없는 회원 검색 | [결과](results/q12.txt) |
-| Q13 | UPDATE | 103번 대여 반납 처리 | [결과](results/q13.txt) |
-| Q14 | DELETE | 116번 대여 기록 삭제 | [결과](results/q14.txt) |
-| Q15 | CREATE INDEX | 회원번호 검색용 인덱스 생성 | [결과](results/q15.txt) |
+| Q01 | 기본 조회 | 회원 전체 조회 | [텍스트](results/q01.txt) · [스크린샷](results/screenshots/q01.png) |
+| Q02 | WHERE | 1번 분류의 책 검색 | [텍스트](results/q02.txt) · [스크린샷](results/screenshots/q02.png) |
+| Q03 | ORDER BY | 최근 가입한 회원부터 정렬 | [텍스트](results/q03.txt) · [스크린샷](results/screenshots/q03.png) |
+| Q04 | LIMIT | 최근 대여 5건 조회 | [텍스트](results/q04.txt) · [스크린샷](results/screenshots/q04.png) |
+| Q05 | INNER JOIN | 대여 기록에 회원 이름 연결 | [텍스트](results/q05.txt) · [스크린샷](results/screenshots/q05.png) |
+| Q06 | INNER JOIN | 책에 분류명 연결 | [텍스트](results/q06.txt) · [스크린샷](results/screenshots/q06.png) |
+| Q07 | LEFT JOIN | 대여하지 않은 회원도 포함 | [텍스트](results/q07.txt) · [스크린샷](results/screenshots/q07.png) |
+| Q08 | 다중 JOIN | 회원·대여·책 연결 | [텍스트](results/q08.txt) · [스크린샷](results/screenshots/q08.png) |
+| Q09 | COUNT·GROUP BY | 회원별 대여 건수 | [텍스트](results/q09.txt) · [스크린샷](results/screenshots/q09.png) |
+| Q10 | SUM·GROUP BY | 회원별 연체료 합계 | [텍스트](results/q10.txt) · [스크린샷](results/screenshots/q10.png) |
+| Q11 | AVG·GROUP BY | 반납 완료 기록의 회원별 평균 대여일수 | [텍스트](results/q11.txt) · [스크린샷](results/screenshots/q11.png) |
+| Q12 | 서브쿼리 | 대여 이력이 없는 회원 검색 | [텍스트](results/q12.txt) · [스크린샷](results/screenshots/q12.png) |
+| Q13 | UPDATE | 103번 대여 반납 처리 | [텍스트](results/q13.txt) · [스크린샷](results/screenshots/q13.png) |
+| Q14 | DELETE | 116번 대여 기록 삭제 | [텍스트](results/q14.txt) · [스크린샷](results/screenshots/q14.png) |
+| Q15 | CREATE INDEX | 회원번호 검색용 인덱스 생성 | [텍스트](results/q15.txt) · [스크린샷](results/screenshots/q15.png) |
+
+### 실행 결과 스크린샷
+
+Q01~Q15를 SQLite Fiddle의 새 임시 DB에서 순서대로 실행한 화면을 `results/screenshots/`에 첨부했습니다. 각 이미지에는 SQL 입력과 실제 출력이 함께 보입니다. Q13·Q14는 변경 전후를, Q15는 생성된 인덱스와 실행 계획을 포함합니다.
+
+캡처 환경은 SQLite Fiddle(WebAssembly) 3.55.0이며, 앞서 기록한 로컬 Python·CLI 검증 환경과 구분합니다. [전체 스크린샷과 재현 안내](results/screenshots/README.md)에서 쿼리별 이미지와 실행 내용을 확인할 수 있습니다.
+
+![Q01 회원 전체 조회 실행 스크린샷](results/screenshots/q01.png)
 
 Q09는 LEFT JOIN으로 모든 회원을 남긴 뒤 `COUNT(r.id)`로 대여번호를 셉니다. 대여가 없는 회원은 대여번호가 NULL이므로 0건이 됩니다. `COUNT(*)`는 LEFT JOIN이 남긴 행도 세므로 이 목적에 맞지 않습니다.
 
@@ -194,5 +203,5 @@ macOS에서 실행한 검증 기록을 기준으로 합니다.
 - `NOT NULL`은 빈 문자열이나 공백 입력까지 막지는 않습니다.
 - 책 한 행은 실제 책 한 권입니다. 서지정보와 복사본을 별도 테이블로 분리하지 않았습니다.
 - 연체료는 저장된 가상 값입니다. 자동 계산 정책은 구현하지 않았습니다.
-- GUI 도구, 대규모 성능, 여러 사용자 동시 실행은 검증하지 않았습니다.
+- 데스크톱 DB 관리 도구, 대규모 성능, 여러 사용자 동시 실행은 검증하지 않았습니다.
 - 뷰·프로시저·트리거와 백엔드 프레임워크는 사용하지 않았습니다.
